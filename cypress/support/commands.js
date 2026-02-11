@@ -10,8 +10,46 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
+// GET - Buscar device específico
+Cypress.Commands.add('criarDevice', (body) => {
+  return cy.request({
+    method: 'POST',
+    url: '/objects',
+    failOnStatusCode: false,
+    body
+  })
+})
+
+Cypress.Commands.add('buscarDeviceEspecifico', (deviceId) => {
+  return cy.request({
+    method: 'GET',
+    url: `/objects/${deviceId}`,
+    failOnStatusCode: false
+  })
+})
+
+Cypress.Commands.add('atualizarDevice', (deviceId, body) => {
+  return cy.request({
+    method: 'PUT',
+    url: `/objects/${deviceId}`,
+    failOnStatusCode: false,
+    body
+  })
+})
+
+Cypress.Commands.add('deletarDevice', (deviceId) => {
+  return cy.request({
+    method: 'DELETE',
+    url: `/objects/${deviceId}`,
+    failOnStatusCode: false
+  })
+})
+
+
+    
+
+
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

@@ -4,6 +4,7 @@ module.exports = defineConfig({
   allowCypressEnv: false,
 
   e2e: {
+    baseUrl: 'https://api.restful-api.dev',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
